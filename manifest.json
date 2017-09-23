@@ -7,10 +7,16 @@
   },
   "permissions": [
     "tabs",
-    "activeTab"
+    "activeTab",
+    "nativeMessaging"
   ],
   "page_action": {
     "browser_style": true,
     "default_title": "emo"
+  },
+  "applications": {
+    "gecko": {
+      "id": "emo"
+    }
   }
 }
