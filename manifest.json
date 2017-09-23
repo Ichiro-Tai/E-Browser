@@ -1,5 +1,16 @@
 {
   "manifest_version": 2,
   "name": "emo",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ],
+  "page_action": {
+    "browser_style": true,
+    "default_title": "emo"
+  }
 }
