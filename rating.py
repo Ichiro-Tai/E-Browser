@@ -1,9 +1,11 @@
-#! /usr/bin/python
+#! /usr/bin/python -u
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import sys
 import json
 import struct
+
+sys.stderr = open('/tmp/test', 'wb')
 
 sid = SentimentIntensityAnalyzer()
 
@@ -28,7 +30,8 @@ def sendMessage(encodedMessage):
     sys.stdout.write(encodedMessage['content'])
     sys.stdout.flush()
 
+
 while True:
     receivedMessage = getMessage()
-    score = sid.polarity_scores(receivedMessage)
+    score = sid.polarity_scores(*receivedMessage)
     sendMessage(encodeMessage('tears.png'))

@@ -8,7 +8,8 @@
   "permissions": [
     "tabs",
     "activeTab",
-    "nativeMessaging"
+    "nativeMessaging",
+    "<all_urls>"
   ],
   "page_action": {
     "browser_style": true,
