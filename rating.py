@@ -1,4 +1,4 @@
-#! /usr/bin/python -u
+#! /usr/local/bin/python2 -u
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import sys
@@ -34,9 +34,9 @@ def sendMessage(encodedMessage):
 def pic_polarity(polarity):
     if polarity >= 0.5:
         result = 'veryPositive.png'
-    elif polarity < 0.5 and polarity > 0:
+    elif polarity > 0:
         result = 'neutral.png'
-    elif polarity <= 0 and polarity > -0.3:
+    elif polarity > -0.3:
         result = 'negative.png'
     else:
         result = 'veryNegative.png'
