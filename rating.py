@@ -31,7 +31,27 @@ def sendMessage(encodedMessage):
     sys.stdout.flush()
 
 
+def pic_polarity(polarity):
+    if polarity >= 0.5:
+        result = 'veryPositive.png'
+    elif polarity < 0.5 and polarity > 0:
+        result = 'neutral.png'
+    elif polarity <= 0 and polarity > -0.3:
+        result = 'negative.png'
+    else:
+        result = 'veryNegative.png'
+
+    return result
+
+
+def pic_objectivity(objectivity):
+    if objectivity == 'obj':
+        return 'objective.png'
+    else:
+        return 'subjective.png'
+
+
 while True:
     receivedMessage = getMessage()
     score = sid.polarity_scores(*receivedMessage)
-    sendMessage(encodeMessage('tears.png'))
+    sendMessage(encodeMessage(pic_polarity(score)))
