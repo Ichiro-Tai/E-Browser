@@ -53,5 +53,10 @@ def pic_objectivity(objectivity):
 
 while True:
     receivedMessage = getMessage()
-    score = sid.polarity_scores(*receivedMessage)
-    sendMessage(encodeMessage(pic_polarity(score)))
+    scores = []
+    for line in receivedMessage[0].splitlines():
+        scores.append(sid.polarity_scores(line)['compound'])
+    sys.stderr.write(str(scores) + "\n")
+    average = float(sum(scores))/len(scores)
+    sys.stderr.write(str(average))
+    sendMessage(encodeMessage(pic_polarity(average)))
