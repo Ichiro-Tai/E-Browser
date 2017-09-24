@@ -1,4 +1,4 @@
-#! /usr/local/bin/python2 -u
+#! /usr/bin/python -u
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import sys
