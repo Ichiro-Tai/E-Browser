@@ -1,5 +1,5 @@
-var html_first = "<html><body><h1>This page's emotion</h1><center><img src=\""
-var html_last = "\" alt=\"tears\" width=\"50\" height=\"50\"/></center></body></html>"
+var html_first = '<html><body><h1>This page\'s emotion</h1><center><img src="';
+var html_last = '" alt="tears" width="50" height="50"/></center></body></html>';
 
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 	if (changeInfo.status === 'complete') {
@@ -10,7 +10,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 			.then((uri) => {
 				browser.pageAction.setIcon({tabId: tabId, path: uri});
 				browser.pageAction.getPopup({tabId: tabId}, (oldpopup) => {
-					var popup = URL.createObjectURL(new Blob([html_first + uri + html_last], {type: 'text/html'}));
+					var popup = URL.createObjectURL(new Blob([html_first + browser.extension.getURL(uri) + html_last], {type: 'text/html'}));
 					browser.pageAction.setPopup({tabId: tabId, popup: popup});
 					if (oldpopup)
 						URL.revokeObjectURL(oldpopup);
