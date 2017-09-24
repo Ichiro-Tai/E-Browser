@@ -1,4 +1,4 @@
-var html_first = '<!DCCTYPE html><html><body><div style="border-style:solid;margin:10px;padding:10px;"><h1>The page\'s feeling</h1><img style="display:block;margin-left:auto;margin-right:auto;" src="';
+var html_first = '<!DCCTYPE html><html><body><div style="border-style:solid;margin:10px;padding:10px;padding-top:0"><h1>The page is feeling</h1><img style="display:block;margin-left:auto;margin-right:auto;" src="';
 var html_last = '" alt="tears" width="50" height="50"/></div></body></html>';
 
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
