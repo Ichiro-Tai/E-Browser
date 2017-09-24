@@ -13,8 +13,7 @@
   ],
   "page_action": {
     "browser_style": true,
-    "default_title": "emo",
-    "default_popup": "popup.html"
+    "default_title": "emo"
   },
   "applications": {
     "gecko": {
