@@ -1,6 +1,6 @@
 # emo
 
-**With emo, your webpage can now express its feelings to you.** 
+** With emo, your webpage can now express its feelings to you.** 
 
 ## Introduction
 
