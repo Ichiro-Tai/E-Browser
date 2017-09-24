@@ -1,6 +1,7 @@
 #! /usr/bin/python -u
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
 import sys
 import json
 import struct
