@@ -55,8 +55,10 @@ while True:
     receivedMessage = getMessage()
     scores = []
     for line in receivedMessage[0].splitlines():
-        if line.strip():
-            scores.append(sid.polarity_scores(line)['compound'])
-    average = float(sum(scores))/len(scores)
-    sys.stderr.write(str(average))
+        line = line.strip()
+        score = sid.polarity_scores(line)['compound']
+        if score:
+            scores.append((score, len(line)))
+    average = (sum([score * weight for score, weight in scores]) /
+               sum([weight for score, weight in scores]))
     sendMessage(encodeMessage(pic_polarity(average)))
