@@ -19,3 +19,10 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 		browser.pageAction.hide(tabId);
 	}
 });
+
+browser.tabs.onRemoved.addListener((tabId, removeInfo, tabInfo) => {
+	browser.pageAction.getPopup({tabId: tabId}, (oldpopup) => {
+		if (oldpopup)
+			URL.revokeObjectURL(oldpopup);
+	});
+});
